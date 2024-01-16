@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bot.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 09:33:13 by twang             #+#    #+#             */
-/*   Updated: 2024/01/15 10:28:55 by twang            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Bot.hpp"
 
 /**  Constructors and destructors  *********************************************/
@@ -196,6 +184,7 @@ void	Bot::privmsg( std::string &msg, std::string &usr )
 	if (usr[0] != '#') {
 		std::string	command = ASSISTANT;
 		std::string	answer = getGPTanswer(command.c_str());
+		usr = usr.substr(0, usr.find('!'));
 		sendToServer( "PRIVMSG " + usr + " " + answer + "\r\n" );
 	}
 	else {
@@ -203,8 +192,8 @@ void	Bot::privmsg( std::string &msg, std::string &usr )
 		std::string	answer = getGPTanswer(command.c_str());
 		if (answer == "\"KICK\"\n") {
 			std::string	channel = usr.substr(0, usr.find(' '));
-			std::string	toBeKicked = usr.substr(usr.find(' '), usr.length() - usr.find(' '));
-			std::string	kickCommand = "KICK " + channel + toBeKicked + REASON + "\r\n";
+			std::string	toBeKicked = usr.substr(usr.find(' ') + 1, usr.find('!') - usr.find(' ') - 1);
+			std::string	kickCommand = "KICK " + channel + " " + toBeKicked + " " + REASON + "\r\n";
 			sendToServer( kickCommand );
 		}
 	}

@@ -36,7 +36,7 @@ The ft_irc project at 42 involves implementing an IRC (Internet Relay Chat) serv
 
 ## Usage
 1. Start the server: `./ircserv [port] [passwd]`
-2. Launch the client: `nc -C localhost [port] or using hexchat`
+2. Launch the client: `nc -C localhost [port]` or using HexChat
 
 ## Examples
 Example of using the server and client.

@@ -31,33 +31,44 @@ The ft_irc project at 42 involves implementing an IRC (Internet Relay Chat) serv
 - ...
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/hgeffroy/irc.git`
+1. Clone the repository: `git clone https://github.com/aascedu/ft_irc`
 2. Compile the project: `make`
 
 ## Usage
-1. Start the server: `./server [port]`
-2. Launch the client: `./client [IP address] [port]`
+1. Start the server: `./ircserv [port] [passwd]`
+2. Launch the client: `nc -C localhost [port] or using hexchat`
 
 ## Examples
 Example of using the server and client.
 
 ```bash
 # Terminal 1 - Start the server
-$ ./server 6667
-IRC server started on port 6667
+$ ./ircserv 2000 qwerty
+IRC server started on port 2000 with password "qwerty"
 
 # Terminal 2 - Connect a client
-$ ./client 127.0.0.1 6667
+$ nc -C localhost 2000
 Connected to the IRC server
+
+# Terminal 2 - Register process
+PASS qwerty
+NICK nickname
+USER username 0 * :realname
 
 # Terminal 2 - Join a channel
 JOIN #general
 
-# Terminal 1 - Public message on the channel
+# Terminal 2 - Send a message on the channel
 PRIVMSG #general :Hello, everyone!
 
 # Terminal 2 - Leave the channel
 PART #general
+
+# Terminal 3 - Start OpenAI Bot
+make bot
+
+# Terminal 2 - Send a question to the bot
+PRIVMSG bot Are you an IA from OpenAI ?
 ```
 
 ## Resources

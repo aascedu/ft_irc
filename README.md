@@ -53,7 +53,7 @@ Connected to the IRC server
 # Terminal 2 - Register process
 PASS qwerty
 NICK nickname
-USER username 0 * :realname
+USER username 0 * :username
 
 # Terminal 2 - Join a channel
 JOIN #general

@@ -15,7 +15,7 @@
 void	bot( Server &s, Client& c, std::string& str )
 {
 	( void )str;
-	std::string userCmd = "USER bot\r\n";
+	std::string userCmd = "USER bot 0 * :bot\r\n";
 	std::string nickCmd = "NICK bot\r\n";
 
 	user( s, c, userCmd, true );

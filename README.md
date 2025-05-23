@@ -17,7 +17,7 @@
 
 ## About
 
-The ft_irc project at 42 involves implementing an IRC (Internet Relay Chat) server and client using the C language. The goal is to create a real-time communication system, allowing multiple users to connect to discussion channels.
+The ft_irc project at 42 involves implementing an IRC (Internet Relay Chat) server using the C++ language. The goal is to create a real-time communication system, allowing multiple users to connect to discussion channels.
 
 ## Features
 - [ ] Connect to the IRC server
@@ -28,7 +28,7 @@ The ft_irc project at 42 involves implementing an IRC (Internet Relay Chat) serv
 
 ## Prerequisites
 - GCC (GNU Compiler Collection)
-- ...
+- nc or a client (HexChat)
 
 ## Installation
 1. Clone the repository: `git clone https://github.com/aascedu/ft_irc`
